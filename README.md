@@ -1,11 +1,11 @@
 # bitcoin-bot
 
+**Телеграм-бот для управления BTC-адресом:** 
 
-python -m pip install --upgrade pip
+- отправка BTC на адрес;
+- генерация BTC адреса;
+- импорт/экспорт BTC адреса.
 
-
-pip install -r /path/to/requirements.txt
-
-����� ������� 
-
-���������� ��� �� Python anywhere
+# Зависимовсти
+    python -m pip install --upgrade pip
+    pip install -r /path/to/requirements.txt
