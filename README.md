@@ -12,7 +12,7 @@ pip i![инлайн режим](https://user-images.githubusercontent.com/892072
 ![инлайн реж](https://user-images.githubusercontent.com/89207273/171435291-9ff0d2ea-8a72-48ee-a9af-7aae93bac448.jpg)
 ![инлайн режж](https://user-images.githubusercontent.com/89207273/171435334-f198ed59-5183-4e2d-ad8f-0505fdbb1c8e.jpg)
 
-Мою идею смогли реализовать серьезно и сполна ребята из [CryptoBot] (http://t.me/CryptoBot?start=r-145148-market) с функциями чеков и счетов. 
+Мою идею смогли реализовать серьезно и сполна ребята из [CryptoBot](http://t.me/CryptoBot?start=r-145148-market) с функциями чеков и счетов. 
 
 # Установка. Зависимовсти:
     python -m pip install --upgrade pip
