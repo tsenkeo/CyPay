@@ -877,7 +877,7 @@ while True:
                                 db.commit()
                                 text_description = f'Комиссия сети {my_constants.size_commission_network_in_procent}% {size_com_n_in_cur} {currency.upper()}' \
                                                    f'\nКомиссия бота {my_constants.size_commission_bot_in_procent}% {size_com_b_in_cur} {currency.upper()}'
-                                answer_text = f'*Перейдите в бот чтобы получить ₿{float(summ_btc) / 100000000.0} BTC*'
+                                answer_text = f'*Перейдите в бот чтобы получить ₿{summ_btc}*'
                                 kb = types.InlineKeyboardMarkup()
                                 url_button = types.InlineKeyboardButton(text='➡️',
                                                                         url=f'https://t.me/{my_constants.nickname_bot}?start={hash}')
