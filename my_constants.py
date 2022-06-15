@@ -1,5 +1,5 @@
-token = '2065364356:AAE6ChU67kKiRwa9YusEWt-fIsx39ueX20I'
-nickname_bot = 'CyPayBot'
+token = 'I'
+nickname_bot = ''
 
 
 #           Комиссии
