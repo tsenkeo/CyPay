@@ -321,7 +321,7 @@ while True:
                 m = message.text
                 m = m.split()
                 start, hash = m
-                parse_mode = f'📃 Пожалуйста, ознакомьтесь с [Условиями использования и Политикой конфиденциальности]({my_constants.terms}) перед тем как я Вам зачислю BTC\n\n---\n\n{hash}'
+                parse_mode = f'📃 Пожалуйста, ознакомьтесь с [Условиями использования и Политикой конфиденциальности]({my_constants.terms}) перед тем как я зачислю BTC\n\n---\n\n{hash}'
                 bot.edit_message_text(chat_id=message.chat.id, message_id=(message.message_id + 1), text=parse_mode, reply_markup=keyboards.keyboard_sign)
 
         elif select_db.check_id_in_db(id=message.chat.id) is False:
@@ -372,8 +372,8 @@ while True:
                     db.commit()
                     s = transaction.send(user_id=sender_id, address=address, summ=summ)
                     summ = float(float(summ) / 100000000.0)
-                    bot.send_message(chat_id=sender_id, text=f'➖ *Списание по быстрому переводу ₿{summ} BTC*\n\n{s}')
-                    parse_mode = f'✅ {s}\n\n👇🏻 Обновите данные'
+                    bot.send_message(chat_id=sender_id, text=f'➖ *Списание по быстрому переводу ₿{summ} BTC*\n\n')
+                    parse_mode = f'✅ *Успешно получено!*\n\n👇🏻 Обновите данные. \n\nТакже более подробно ознакомиться с транзакцией можно по кнопке "История".'
                     bot.edit_message_text(chat_id=message.chat.id, message_id=(message.message_id + 1), text=parse_mode, reply_markup=kb)
             elif data is None:
                 bot.send_message(chat_id=my_constants.debug_account, text=f'*Кто-то пытается подобрать ID поручения для транзакции...*\n\n*ID пользователя:* `{message.chat.id}`\n\n*ID сообщения:* `{message.message_id}`\n\n*Текст сообщения:* `{message.text}`')
@@ -613,7 +613,7 @@ while True:
     @bot.callback_query_handler(func=lambda call: True)
     def call_button_and_inline(call):
         if call.message:
-            if call.data == 'yes_terms' and re.compile(r'^📃 Пожалуйста, ознакомьтесь с Условиями использования и Политикой конфиденциальности перед тем как я Вам зачислю BTC\n\n---\n\n\w{51}$').findall((call.message.text)) and select_db.check_id_in_db(id=call.message.chat.id) is False:
+            if call.data == 'yes_terms' and re.compile(r'^📃 Пожалуйста, ознакомьтесь с Условиями использования и Политикой конфиденциальности перед тем как я зачислю BTC\n\n---\n\n\w{51}$').findall((call.message.text)) and select_db.check_id_in_db(id=call.message.chat.id) is False:
                     parse_mode = f'*Генерирую ключ и адрес...*⏳'
                     bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                                           text=parse_mode)
@@ -643,8 +643,8 @@ while True:
                             db.commit()
                             s = transaction.send(user_id=sender_id, address=address, summ=summ)
                             summ = float(float(summ) / 100000000.0)
-                            bot.send_message(chat_id=sender_id, text=f'➖ *Списание по быстрому переводу ₿{summ} BTC*\n\n{s}')
-                            parse_mode = f'✅ {s}\n\n👇🏻 Обновите данные'
+                            bot.send_message(chat_id=sender_id, text=f'➖ *Списание по быстрому переводу ₿{summ} BTC*\n\n')
+                            parse_mode = f'✅ *Успешно получено!*\n\n👇🏻 Обновите данные. \n\nТакже более подробно ознакомиться с транзакцией можно по кнопке "История".'
                             bot.edit_message_text(chat_id=call.message.chat.id, message_id=call.message.message_id,
                                                   text=parse_mode, reply_markup=kb)
                     elif data is None:
@@ -877,7 +877,7 @@ while True:
                                 db.commit()
                                 text_description = f'Комиссия сети {my_constants.size_commission_network_in_procent}% {size_com_n_in_cur} {currency.upper()}' \
                                                    f'\nКомиссия бота {my_constants.size_commission_bot_in_procent}% {size_com_b_in_cur} {currency.upper()}'
-                                answer_text = f'*Перейдите в бот чтобы получить ₿{summ_btc}*'
+                                answer_text = f'*Перейдите в бот чтобы получить ₿{float(summ_btc)/100000000.0}*'
                                 kb = types.InlineKeyboardMarkup()
                                 url_button = types.InlineKeyboardButton(text='➡️',
                                                                         url=f'https://t.me/{my_constants.nickname_bot}?start={hash}')
