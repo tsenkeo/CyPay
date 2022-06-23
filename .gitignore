@@ -1,1 +1,4 @@
+.idea
 db.db
+my_constants.py
+__pycache__
