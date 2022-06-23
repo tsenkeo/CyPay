@@ -17,8 +17,8 @@
 import my_constants, re, secrets, string, datetime, pytz, sqlite3
 from telebot import *
 from bit import *
-# from bit import PrivateKey as Key 
-from bit import PrivateKeyTestnet as Key
+from bit import PrivateKey as Key 
+#from bit import PrivateKeyTestnet as Key
 from bit.network import currency_to_satoshi
 from bit.network import satoshi_to_currency 
 
